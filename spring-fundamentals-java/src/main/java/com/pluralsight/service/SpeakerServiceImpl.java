@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
+import javax.annotation.PreDestroy;
 import java.util.List;
 
 @Service("speakerService")
@@ -28,6 +29,11 @@ public class SpeakerServiceImpl implements SpeakerService {
     @PostConstruct
     private void initialize() {
         System.out.println("Called after the constructors.");
+    }
+
+    @PreDestroy
+    private void terminate() {
+        System.out.println("Called before the destructors.");
     }
 
     @Override
